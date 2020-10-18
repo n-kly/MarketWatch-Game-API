@@ -32,10 +32,12 @@ Your game URL should look something like this:
 ### MW Daily.py
 1. Enter the day (You can skip days; but I recommend that you don't)
 2. A .txt file will be updated in Daily that contains a dictionary of all players
+
 Note: If a player is removed from the game all previous data in their dictionary will be deleted
 
 ### MW Graph.py
 1. Follow CLI to create a graph 
+
 Note: This program will use data from 'MW Daily.py' only 
 
 
