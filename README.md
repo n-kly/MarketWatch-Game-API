@@ -2,7 +2,7 @@
 Simple API to get statistics from a PUBLIC MarketWatch game and create: Spreadsheets, Weekly/ Daily log files and Graphs
 
 ## Installation
-The following dependencies must be installed (pip):
+The following dependencies must be installed (python 3.8.6):
   - bs4
   - requests
   - openpyxl
