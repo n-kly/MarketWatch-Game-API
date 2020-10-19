@@ -8,7 +8,7 @@ from MWSetup import URL1
 
 # Initialize all variables
 dataArray = []
-exPath = "Weekly\\BISH_Investors_2020.xlsx"
+exPath = "Weekly\\Weekly Spreadsheet.xlsx"
 loPath = "Weekly\\LOG\\"
 
 try: URL = URL1
@@ -71,31 +71,17 @@ print("")
 
 dataArray.sort() # Sorts array alphabetically
 
-print("Loading PdataArray")# Opens previous weeks data into a variable
-f = open(f"{loPath}Week {str(pWeek)}.txt","r")
+f = open(f"{loPath}Week {str(pWeek)}.txt","r") # Opens previous weeks data into a variable
+
 PdataArray = literal_eval(f.read())
 f.close()
 print("")
 
-PdataArray.append("Cheeky Patch") # Fixes a bug with index values
+PdataArray.append(["Cheeky Patch"]) # Fixes a bug with index values
 
 print("Cleansing dataArray")
 # TODO use a dictionary instead of a list please
-for data in dataArray: # Creates a list of all "keys"
-    ghettoKeys.append(data[0])
-
-for i in range(len(dataArray)):
-    if PdataArray[i][0] not in ghettoKeys: # Checks to see if anyone has left the game
-        removeList.append((i-counter)) #Creates list of indexes to remove
-        counter += 1
-    else:
-        pass
-
-for i in removeList:
-    PdataArray.pop(i)
-    print(f"    {PdataArray[i][0]}'s person entry removed")
-
-for i in range(len(dataArray)):
+for i in range(len(dataArray)): # Find in new thats not in old; Add in new
     if dataArray[i][0] != PdataArray[i][0]: # Checks to see if anyone new has joined and gives them a PdataArray value
         List = [(dataArray[i][0]),0,0,0,0,0,0]
         PdataArray.insert(i,List)
@@ -106,6 +92,22 @@ for i in range(len(dataArray)):
     dataArray[i][4] = dataArray[i][3] - PdataArray[i][3] # Sets new trade values
     dataArray[i][6] = dataArray[i][5] - PdataArray[i][5] # Sets relative return values
 print("")
+
+
+for data in dataArray: # Creates a list of all "keys"
+    ghettoKeys.append(data[0])
+
+for i in range(len(PdataArray)): # Find in old thats not in new; Delete in old
+    if PdataArray[i][0] not in ghettoKeys: # Checks to see if anyone has left the game
+        removeList.append((i-counter)) # Creates list of indexes to remove
+        counter += 1
+    else:
+        pass
+
+for i in removeList:
+    print(f"    {PdataArray[i][0]}'s person entry removed")
+    PdataArray.pop(i)
+
 
 print("Saving dataArray")# Logs the weeks data in a text file
 f = open(f"{loPath}Week {week}.txt", "x")
