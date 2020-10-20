@@ -17,3 +17,5 @@ except FileExistsError:  print("    FileExistsError: 'Weekly Spreadsheet.xlsx'")
 # EDIT BELOW
 URL1 = "https://www.marketwatch.com/game/padzikintrocohortb/rankings"
 # EDIT ABOVE
+
+input("Press any key to exit")
