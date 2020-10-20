@@ -79,3 +79,5 @@ print("")
 f = open(loPath,"w")
 f.write(str(dataDict))
 f.close()
+
+input("Press any key to exit")
